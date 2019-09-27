@@ -1,38 +1,46 @@
-import React, { Fragment } from "react";
+import React from "react";
 
 function Login() {
   return (
-    <Fragment>
-      <i className="fas fa-brain mx-auto"></i>
-      <form>
+    <div className="d-flex flex-column">
+      <h3 className="logo">Daze</h3>
+      <form style={{ minWidth: "320px" }}>
         <div className="form-group">
-          <label htmlFor="loginUsername">Username</label>
+          <label className="text-white" htmlFor="loginUsername">
+            Username
+          </label>
           <input
-            className="form-control"
+            className="form-control text-white"
             type="text"
-            name=""
             id="loginUsername"
-            placeholder="Username"
+            style={{ background: "transparent" }}
           />
         </div>
         <div className="form-group">
-          <label htmlFor="loginPassword">Password</label>
+          <label className="text-white" htmlFor="loginPassword">
+            Password
+          </label>
           <input
-            className="form-control"
+            className="form-control text-white"
             type="password"
-            name=""
             id="loginPassword"
-            placeholder="Password"
+            style={{ background: "transparent" }}
           />
         </div>
         <input
           className="btn btn-primary btn-block mb-3"
           type="submit"
           value="Log In"
+          style={{
+            backgroundColor: "#3f808b",
+            borderColor: "#3f808b"
+          }}
         />
-        <a href="">Forgot Password?</a>
+        <a href="#" className="text-white">
+          Forgot Password?
+        </a>
       </form>
-    </Fragment>
+    </div>
   );
 }
 
