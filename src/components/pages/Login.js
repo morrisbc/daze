@@ -4,7 +4,7 @@ function Login() {
   return (
     <div className="login container d-flex flex-column justify-content-center">
       <h3 className="logo">Daze</h3>
-      <form style={{ minWidth: "320px" }}>
+      <form>
         <div className="form-group">
           <label className="text-white" htmlFor="loginUsername">
             Username
