@@ -2,7 +2,7 @@ import React from "react";
 
 function Login() {
   return (
-    <div className="d-flex flex-column">
+    <div className="login container d-flex flex-column justify-content-center">
       <h3 className="logo">Daze</h3>
       <form style={{ minWidth: "320px" }}>
         <div className="form-group">

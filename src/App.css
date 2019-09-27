@@ -3,6 +3,11 @@
   width: 100vw;
 }
 
+.login {
+  height: 100vh;
+  max-width: 400px;
+}
+
 .logo {
   color: white;
   text-align: center;
