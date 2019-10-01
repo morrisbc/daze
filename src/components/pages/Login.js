@@ -36,10 +36,10 @@ function Login() {
             borderColor: "#3f808b"
           }}
         />
-        <a href="#" className="text-white">
-          Forgot Password?
-        </a>
       </form>
+      <a href="#" className="text-white text-center">
+        Forgot Password?
+      </a>
     </div>
   );
 }
