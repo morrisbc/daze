@@ -3,7 +3,8 @@
   width: 100vw;
 }
 
-.login {
+.login,
+.forgot {
   height: 100vh;
   max-width: 400px;
 }
@@ -12,4 +13,12 @@
   color: white;
   text-align: center;
   font-size: 3rem;
+}
+
+.auth-link {
+  color: #3f808b;
+}
+
+.auth-link:hover {
+  color: white;
 }
