@@ -1,4 +1,5 @@
 import React from "react";
+import Footer from "../Footer";
 
 const Home = () => {
   return (
@@ -24,12 +25,13 @@ const Home = () => {
         <h1 className="logo fadein">In a Daze?</h1>
         <i
           className="fas fa-chevron-down text-white position-absolute chevron"
-          style={{ bottom: "1rem", fontSize: "2rem", cursor: "pointer" }}
+          style={{ bottom: "1rem", fontSize: "2rem" }}
         ></i>
       </section>
-      {/* <section>
+      <section id="help">
         <h2 className="text-white text-center">We're Here to Help</h2>
-      </section> */}
+      </section>
+      <Footer />
     </div>
   );
 };
