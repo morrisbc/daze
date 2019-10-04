@@ -1,4 +1,5 @@
 import React from "react";
+import Home from "./components/pages/Home";
 import Login from "./components/pages/Login";
 import Forgot from "./components/pages/Forgot";
 import Signup from "./components/pages/Signup";
@@ -9,6 +10,9 @@ function App() {
   return (
     <Router>
       <Switch>
+        <Route exact path="/">
+          <Home />
+        </Route>
         <Route path="/login">
           <Login />
         </Route>

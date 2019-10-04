@@ -1,6 +1,5 @@
-.App {
+.hero {
   height: 100vh;
-  width: 100vw;
 }
 
 .login,
@@ -14,6 +13,41 @@
   color: white;
   text-align: center;
   font-size: 3rem;
+}
+
+@keyframes fadein {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+.fadein {
+  opacity: 0;
+  animation: 4s fadein 1s forwards;
+}
+
+@keyframes bounce {
+  0% {
+    bottom: 1rem;
+  }
+
+  50% {
+    bottom: 1.75rem;
+  }
+
+  100% {
+    bottom: 1rem;
+  }
+}
+
+.chevron {
+  opacity: 0;
+  animation: 4s fadein 2s forwards,
+    2s bounce cubic-bezier(0.175, 0.885, 0.32, 1.275) infinite;
 }
 
 .auth-link {
