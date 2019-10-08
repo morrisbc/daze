@@ -4,7 +4,7 @@ import PropTypes from "prop-types";
 const Greeting = ({ firstName }) => {
   return (
     <Fragment>
-      <h2 className="text-white my-5">Hello, {firstName}!</h2>
+      <h2 className="text-white my-4">Hello, {firstName}!</h2>
     </Fragment>
   );
 };

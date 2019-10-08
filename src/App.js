@@ -1,4 +1,5 @@
 import React from "react";
+import Header from "./components/Header";
 import Home from "./components/pages/Home";
 import Login from "./components/pages/Login";
 import Forgot from "./components/pages/Forgot";
@@ -12,15 +13,19 @@ function App() {
     <Router>
       <Switch>
         <Route exact path="/">
+          <Header />
           <Home />
         </Route>
         <Route path="/login">
+          <Header />
           <Login />
         </Route>
         <Route path="/forgot">
+          <Header />
           <Forgot />
         </Route>
         <Route path="/signup">
+          <Header />
           <Signup />
         </Route>
         <Route path="/dashboard">

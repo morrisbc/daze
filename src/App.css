@@ -54,10 +54,20 @@
     2s bounce cubic-bezier(0.175, 0.885, 0.32, 1.275) infinite;
 }
 
-.auth-link {
+.auth-link,
+.nav-link {
   color: #3f808b;
 }
 
-.auth-link:hover {
+.auth-link:hover,
+.nav-link:hover {
   color: white;
+}
+
+.selected {
+  color: white;
+}
+
+.selected:hover {
+  color: #3f808b;
 }

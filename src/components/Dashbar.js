@@ -1,12 +1,12 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-const Dashbar = ({ value, unit, goalValue }) => {
-  const border = value === goalValue ? "2px solid gold" : "none";
+const Dashbar = ({ value, goalValue, unit, activity }) => {
+  const border = value >= goalValue ? "2px solid gold" : "none";
 
   return (
-    <div className="container-fluid my-2">
-      <h3 className="text-center text-white">
+    <div className="container-fluid text-white text-center my-2">
+      <h3>
         {value} <br /> {unit}
       </h3>
       <div className="progress" style={{ border, borderRadius: "100px" }}>
@@ -23,6 +23,7 @@ const Dashbar = ({ value, unit, goalValue }) => {
           }}
         ></div>
       </div>
+      <p className="mt-2">{activity}</p>
     </div>
   );
 };
@@ -30,7 +31,8 @@ const Dashbar = ({ value, unit, goalValue }) => {
 Dashbar.propTypes = {
   value: PropTypes.number.isRequired,
   unit: PropTypes.string.isRequired,
-  goalValue: PropTypes.number.isRequired
+  goalValue: PropTypes.number.isRequired,
+  activity: PropTypes.string.isRequired
 };
 
 export default Dashbar;
