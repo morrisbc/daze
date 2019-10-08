@@ -5,7 +5,7 @@ import Dashbar from "../Dashbar";
 const Dashboard = () => {
   const date = new Date();
   const today = `${date.getMonth() +
-    1} / ${date.getDay()} / ${date.getFullYear()}`;
+    1} / ${date.getDate()} / ${date.getFullYear()}`;
 
   return (
     <div className="dashboard container d-flex flex-column justify-content-center align-items-center">
