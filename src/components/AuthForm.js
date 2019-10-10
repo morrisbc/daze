@@ -21,13 +21,9 @@ const AuthForm = ({ onSubmit, submitText }) => {
         />
       </div>
       <input
-        className="btn btn-block mb-3 text-white"
+        className="btn btn-block btn-main mb-3"
         type="submit"
         value={submitText}
-        style={{
-          backgroundColor: "#3f808b",
-          borderColor: "#3f808b"
-        }}
       />
     </form>
   );

@@ -13,6 +13,10 @@
   height: 100vh;
 }
 
+.sidenav {
+  height: 100vh;
+}
+
 .logo {
   color: white;
   text-align: center;
@@ -70,4 +74,10 @@
 
 .selected:hover {
   color: #3f808b;
+}
+
+.btn-main {
+  background-color: #3f808b;
+  border-color: #3f808b;
+  color: white;
 }

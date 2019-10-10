@@ -4,7 +4,7 @@ import Home from "./components/pages/Home";
 import Login from "./components/pages/Login";
 import Forgot from "./components/pages/Forgot";
 import Signup from "./components/pages/Signup";
-import Dashboard from "./components/pages/Dashboard";
+import Dashboard from "./components/pages/dashboard/Dashboard";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import "./App.css";
 
