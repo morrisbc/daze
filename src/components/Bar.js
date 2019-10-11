@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-const Bar = ({ id, value, maxValue, color }) => {
+const Bar = ({ id, value, maxValue, color, label }) => {
   return (
     <div
       id={id}
@@ -12,6 +12,8 @@ const Bar = ({ id, value, maxValue, color }) => {
         height: `${(value / maxValue) * 100}%`,
         margin: "0 3px"
       }}
+      aria-labelledby={label}
+      aria-valuenow={value}
     ></div>
   );
 };
@@ -19,7 +21,8 @@ const Bar = ({ id, value, maxValue, color }) => {
 Bar.propTypes = {
   value: PropTypes.number.isRequired,
   maxValue: PropTypes.number.isRequired,
-  color: PropTypes.string
+  color: PropTypes.string,
+  label: PropTypes.string.isRequired
 };
 
 export default Bar;
