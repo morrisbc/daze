@@ -33,9 +33,9 @@ const BarGraph = ({ labels, values, unit, goalValue, barColor }) => {
         style={{ borderBottom: "1px solid white" }}
       >
         {labels.map(label => (
-          <label className="m-0" key={label} htmlFor={`${label}-bar`}>
+          <span className="m-0" key={label}>
             {label}
-          </label>
+          </span>
         ))}
       </div>
       <div className="position-relative h-100 d-flex justify-content-around align-items-end px-1">
@@ -67,7 +67,6 @@ const BarGraph = ({ labels, values, unit, goalValue, barColor }) => {
         {values.map((value, idx) => (
           <Bar
             key={`${labels[idx]}-bar`}
-            id={`${labels[idx]}-bar`}
             value={value}
             maxValue={Math.max(...values) + 1}
             color={barColor}
