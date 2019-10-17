@@ -1,6 +1,6 @@
 import React from "react";
 import Greeting from "../../Greeting";
-import Dashbar from "../../Dashbar";
+import Dashbar from "./Dashbar";
 
 const Overview = () => {
   const date = new Date();

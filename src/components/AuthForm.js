@@ -7,17 +7,15 @@ const AuthForm = ({ onSubmit, submitText }) => {
       <div className="form-group">
         <label className="text-white">Username</label>
         <input
-          className="form-control text-white"
+          className="form-control text-white bg-transparent"
           type="email"
-          style={{ background: "transparent" }}
         />
       </div>
       <div className="form-group">
         <label className="text-white">Password</label>
         <input
-          className="form-control text-white"
+          className="form-control text-white bg-transparent"
           type="password"
-          style={{ background: "transparent" }}
         />
       </div>
       <input

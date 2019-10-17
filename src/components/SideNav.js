@@ -34,6 +34,13 @@ const Sidenav = () => {
         >
           Diet
         </NavLink>
+        <NavLink
+          className="nav-link py-4"
+          to="/dashboard/settings"
+          activeClassName="selected"
+        >
+          Settings
+        </NavLink>
       </nav>
     </aside>
   );

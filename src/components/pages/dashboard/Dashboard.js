@@ -3,6 +3,7 @@ import { Switch, Route } from "react-router-dom";
 import SideNav from "../../SideNav";
 import Overview from "./Overview";
 import Sleep from "./Sleep";
+import Settings from "./Settings";
 
 const Dashboard = () => {
   return (
@@ -15,6 +16,9 @@ const Dashboard = () => {
           </Route>
           <Route path="/dashboard/sleep">
             <Sleep sleepGoal={8} sleepAvg={7.5} />
+          </Route>
+          <Route path="/dashboard/settings">
+            <Settings />
           </Route>
         </Switch>
       </main>
