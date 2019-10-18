@@ -4,7 +4,7 @@ import { NavLink } from "react-router-dom";
 const Header = () => {
   return (
     <header className="container sticky-top d-flex justify-content-end w-100 pt-3">
-      <navbar className="d-flex">
+      <nav className="d-flex">
         <NavLink
           className="nav-link mx-3"
           exact
@@ -27,7 +27,7 @@ const Header = () => {
         >
           Sign Up
         </NavLink>
-      </navbar>
+      </nav>
     </header>
   );
 };

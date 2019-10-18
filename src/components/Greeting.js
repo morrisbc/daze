@@ -1,16 +1,11 @@
 import React, { Fragment } from "react";
-import PropTypes from "prop-types";
 
 const Greeting = ({ firstName }) => {
   return (
     <Fragment>
-      <h2 className="text-white my-4">Hello, {firstName}!</h2>
+      <h1 className="text-white my-4">Hello{firstName && `, ${firstName}`}!</h1>
     </Fragment>
   );
-};
-
-Greeting.propTypes = {
-  firstName: PropTypes.string.isRequired
 };
 
 export default Greeting;

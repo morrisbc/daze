@@ -3,6 +3,7 @@ import PropTypes from "prop-types";
 
 const Dashbar = ({ value, goalValue, unit, activity }) => {
   const border = value >= goalValue ? "2px solid gold" : "none";
+  const barLength = goalValue === 0 ? 1 : value / goalValue;
 
   return (
     <div className="container-fluid text-white text-center my-2">
@@ -17,7 +18,7 @@ const Dashbar = ({ value, goalValue, unit, activity }) => {
           aria-valuemin="0"
           aria-valuemax={goalValue}
           style={{
-            width: `${(value / goalValue) * 100}%`,
+            width: `${barLength * 100}%`,
             backgroundColor: "#3f808b",
             borderRadius: "100px"
           }}
