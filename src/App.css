@@ -10,7 +10,7 @@
 }
 
 .dashboard {
-  height: 100vh;
+  min-height: 100vh;
 }
 
 .sidenav {
@@ -21,6 +21,21 @@
   color: white;
   text-align: center;
   font-size: 3rem;
+}
+
+.header {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  padding-top: 16px;
+}
+
+.mobile-nav {
+  position: absolute;
+  background: none;
+  border: none;
+  left: 15px;
+  z-index: 1020;
 }
 
 @keyframes fadein {
@@ -80,4 +95,30 @@
   background-color: #3f808b;
   border-color: #3f808b;
   color: white;
+}
+
+@media screen and (max-width: 450px) {
+  .header {
+    justify-content: center;
+    padding: 0;
+  }
+
+  .header-nav {
+    flex-direction: column;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    padding: 16px 0;
+  }
+
+  .header-nav a {
+    font-size: 1.25rem;
+    text-align: center;
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  .mobile-nav {
+    display: block;
+    top: 15px;
+  }
 }

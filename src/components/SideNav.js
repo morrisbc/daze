@@ -16,7 +16,7 @@ const Sidenav = () => {
   }, []);
 
   return (
-    <aside className="sidenav d-flex flex-column justify-content-center align-items-center">
+    <aside className="sidenav sticky-top d-flex flex-column justify-content-center align-items-center">
       <nav>
         <NavLink
           className="nav-link py-4"

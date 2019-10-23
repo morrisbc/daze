@@ -1,15 +1,15 @@
-import React, { Fragment } from "react";
+import React from "react";
 import DailyGoals from "./DailyGoals";
 import PasswordChange from "./PasswordChange";
 import PersonalInfo from "./PersonalInfo";
 
 const Settings = () => {
   return (
-    <Fragment>
+    <div className="py-3">
       <DailyGoals />
       <PersonalInfo />
       <PasswordChange />
-    </Fragment>
+    </div>
   );
 };
 
