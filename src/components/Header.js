@@ -25,10 +25,7 @@ const Header = () => {
           ></path>
         </svg>
       </button>
-      <nav
-        className="header-nav"
-        style={{ display: navOpen ? "flex" : "none" }}
-      >
+      <nav className={`header-nav ${navOpen ? "nav-open" : "nav-closed"}`}>
         <NavLink
           className="nav-link mx-3"
           exact
