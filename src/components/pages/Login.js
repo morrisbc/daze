@@ -4,7 +4,7 @@ import AuthForm from "../AuthForm";
 import Footer from "../Footer";
 import { Link, Redirect } from "react-router-dom";
 
-function Login() {
+const Login = () => {
   const firebaseContext = useContext(FirebaseContext);
   const { doSignInWithEmailAndPassword } = firebaseContext;
 
@@ -40,6 +40,6 @@ function Login() {
       {redirect && <Redirect to="/dashboard" />}
     </div>
   );
-}
+};
 
 export default Login;

@@ -21,23 +21,17 @@ class Firebase {
 
   // Auth API
 
-  addAuthObserver = func => {
-    this.auth.onAuthStateChanged(func);
-  };
+  addAuthObserver = func => this.auth.onAuthStateChanged(func);
 
-  doCreateUserWithEmailAndPassword = (email, password) => {
-    return this.auth.createUserWithEmailAndPassword(email, password);
-  };
+  doCreateUserWithEmailAndPassword = (email, password) =>
+    this.auth.createUserWithEmailAndPassword(email, password);
 
-  doSignInWithEmailAndPassword = (email, password) => {
-    return this.auth.signInWithEmailAndPassword(email, password);
-  };
+  doSignInWithEmailAndPassword = (email, password) =>
+    this.auth.signInWithEmailAndPassword(email, password);
 
   doSignOut = () => this.auth.signOut();
 
-  doPasswordReset = email => {
-    return this.auth.sendPasswordResetEmail(email);
-  };
+  doPasswordReset = email => this.auth.sendPasswordResetEmail(email);
 
   doPasswordUpdate = password => this.auth.currentUser.updatePassword(password);
 
@@ -61,15 +55,11 @@ class Firebase {
     return user === null ? null : user.uid;
   };
 
-  setUserProfile = profile => {
-    return this.auth.currentUser.updateProfile(profile);
-  };
+  setUserProfile = profile => this.auth.currentUser.updateProfile(profile);
 
   // Firestore API
 
-  getDatabase = () => {
-    return this.db;
-  };
+  getDatabase = () => this.db;
 }
 
 export default Firebase;

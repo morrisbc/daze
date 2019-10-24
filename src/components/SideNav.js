@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useContext } from "react";
-import { Link, NavLink, Redirect } from "react-router-dom";
+import { NavLink, Redirect } from "react-router-dom";
 import FirebaseContext from "./firebase/context";
 
 const Sidenav = () => {
@@ -9,11 +9,19 @@ const Sidenav = () => {
   const [isLoggedOut, setIsLoggedOut] = useState(false);
 
   useEffect(() => {
-    addAuthObserver(user => {
-      setIsLoggedOut(!user);
+    return addAuthObserver(user => {
+      if (!user) {
+        setIsLoggedOut(true);
+      }
     });
     // eslint-disable-next-line
   }, []);
+
+  const logOut = () => {
+    if (window.confirm("Are you sure you want to log out?")) {
+      doSignOut().then(setIsLoggedOut(true));
+    }
+  };
 
   return (
     <aside className="sidenav sticky-top d-flex flex-column justify-content-center align-items-center">
@@ -54,9 +62,12 @@ const Sidenav = () => {
         >
           Settings
         </NavLink>
-        <Link className="nav-link py-4" to="/" onClick={doSignOut}>
+        <button
+          className="nav-link py-4 bg-transparent border-0"
+          onClick={logOut}
+        >
           Log Out
-        </Link>
+        </button>
         {isLoggedOut && <Redirect to="/" />}
       </nav>
     </aside>
