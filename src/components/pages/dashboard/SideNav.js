@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useContext } from "react";
 import { NavLink, Redirect } from "react-router-dom";
-import FirebaseContext from "./firebase/context";
+import FirebaseContext from "../../firebase/context";
 
 const Sidenav = () => {
   const firebaseContext = useContext(FirebaseContext);

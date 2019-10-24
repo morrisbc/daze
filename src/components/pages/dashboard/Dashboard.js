@@ -1,7 +1,7 @@
 import React from "react";
 import { Switch, Route } from "react-router-dom";
-import SideNav from "../../SideNav";
-import Overview from "./Overview";
+import SideNav from "./SideNav";
+import Overview from "./overview/Overview";
 import Sleep from "./sleep/Sleep";
 import Settings from "./settings/Settings";
 

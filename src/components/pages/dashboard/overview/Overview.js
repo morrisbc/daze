@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useContext } from "react";
-import Greeting from "../../Greeting";
-import Dashbar from "./Dashbar";
-import FirebaseContext from "../../firebase/context";
+import Greeting from "../../../Greeting";
+import OverviewBar from "./OverviewBar";
+import FirebaseContext from "../../../firebase/context";
 
 const Overview = () => {
   const firebaseContext = useContext(FirebaseContext);
@@ -40,19 +40,19 @@ const Overview = () => {
       <Greeting firstName={firstName} />
       <h2 className="text-white">{today}</h2>
       <div className="d-flex flex-column flex-md-row w-100">
-        <Dashbar
+        <OverviewBar
           value={15}
           unit="minutes"
           goalValue={exerciseGoal}
           activity="Exercise"
         />
-        <Dashbar
+        <OverviewBar
           value={8}
           unit="hours"
           goalValue={sleepGoal}
           activity="Sleep"
         />
-        <Dashbar
+        <OverviewBar
           value={1200}
           unit="calories"
           goalValue={dietGoal}
