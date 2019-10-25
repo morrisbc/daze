@@ -31,6 +31,7 @@ const Header = () => {
           exact
           to="/"
           activeClassName="selected"
+          onClick={() => setNavOpen(false)}
         >
           Home
         </NavLink>
@@ -38,6 +39,7 @@ const Header = () => {
           className="nav-link mx-3"
           to="/login"
           activeClassName="selected"
+          onClick={() => setNavOpen(false)}
         >
           Log In
         </NavLink>
@@ -45,6 +47,7 @@ const Header = () => {
           className="nav-link mx-3"
           to="/signup"
           activeClassName="selected"
+          onClick={() => setNavOpen(false)}
         >
           Sign Up
         </NavLink>
