@@ -9,7 +9,7 @@ const Dashboard = () => {
   return (
     <div className="dashboard container-fluid d-flex">
       <SideNav />
-      <main className="container">
+      <main className="dashboard-main container">
         <Switch>
           <Route exact path="/dashboard">
             <Overview />

@@ -6,7 +6,7 @@ const Header = () => {
 
   return (
     <header className="header container fixed-top w-100">
-      <button className="mobile-nav" onClick={() => setNavOpen(!navOpen)}>
+      <button className="mobile-nav-btn" onClick={() => setNavOpen(!navOpen)}>
         <svg
           width="32px"
           height="32px"
