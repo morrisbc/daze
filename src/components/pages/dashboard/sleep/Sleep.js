@@ -15,11 +15,14 @@ const Sleep = ({ sleepGoal }) => {
         <div className="d-flex justify-content-around text-white my-3">
           <h3
             className="border-primary pb-1"
-            style={{ borderBottom: "2px solid" }}
+            style={{ borderBottom: "2px solid", fontSize: "1.5rem" }}
           >
             <i className="fas fa-trophy"></i> Goal: {sleepGoal} hours
           </h3>
-          <h3 className="pb-1" style={{ borderBottom: "2px solid gold" }}>
+          <h3
+            className="pb-1"
+            style={{ borderBottom: "2px solid gold", fontSize: "1.5rem" }}
+          >
             <i className="fas fa-history"></i> Avg: {avgValue.toFixed(2)} hours
           </h3>
         </div>

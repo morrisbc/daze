@@ -102,6 +102,12 @@
   color: white;
 }
 
+.night-input,
+.night-input:focus {
+  background: transparent;
+  color: white;
+}
+
 @media screen and (max-width: 450px) {
   .header {
     justify-content: center;
