@@ -179,12 +179,12 @@
   }
 
   .aside-nav {
-    position: absolute;
+    position: fixed;
     left: 0;
   }
 
   .sidenav {
-    position: absolute;
+    position: fixed;
     overflow: hidden;
     background: linear-gradient(#213950, #081018);
   }
