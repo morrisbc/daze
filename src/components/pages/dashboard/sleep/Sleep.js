@@ -12,18 +12,18 @@ const Sleep = ({ sleepGoal }) => {
   return (
     <Fragment>
       <section>
-        <div className="d-flex justify-content-around text-white my-3">
+        <div className="d-flex justify-content-around text-white mt-3 mb-2">
           <h3
-            className="border-primary pb-1"
-            style={{ borderBottom: "2px solid", fontSize: "1.5rem" }}
+            className="sleep-header border-primary pb-1"
+            style={{ borderBottom: "2px solid" }}
           >
-            <i className="fas fa-trophy"></i> Goal: {sleepGoal} hours
+            Goal: {sleepGoal} hrs
           </h3>
           <h3
-            className="pb-1"
-            style={{ borderBottom: "2px solid gold", fontSize: "1.5rem" }}
+            className="sleep-header pb-1"
+            style={{ borderBottom: "2px solid gold" }}
           >
-            <i className="fas fa-history"></i> Avg: {avgValue.toFixed(2)} hours
+            Mean: {avgValue.toFixed(2)} hrs
           </h3>
         </div>
         <BarGraph

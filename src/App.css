@@ -102,6 +102,10 @@
   color: white;
 }
 
+.sleep-header {
+  font-size: 1.5rem;
+}
+
 .night-input,
 .night-input:focus {
   background: transparent;
@@ -196,5 +200,9 @@
 
   .sidenav-closed {
     width: 0;
+  }
+
+  .sleep-header {
+    font-size: 1rem;
   }
 }

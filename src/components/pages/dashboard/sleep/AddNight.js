@@ -6,14 +6,29 @@ const AddNight = () => {
   const [rested, setRested] = useState(false);
   const [tired, setTired] = useState(false);
   const [headache, setHeadache] = useState(false);
+  const [sick, setSick] = useState(false);
   const [notes, setNotes] = useState("");
+  const [closed, setClosed] = useState(false);
 
   return (
-    <section className="text-white mt-4 mb-3">
+    <section className="text-white mt-5 mb-3">
       <h3 className="pb-2" style={{ borderBottom: "1px solid white" }}>
-        Add Night
+        Add Night{" "}
+        <button
+          className="float-right"
+          style={{ background: "none", border: "none", color: "white" }}
+          onClick={() => setClosed(!closed)}
+        >
+          <i className={`fas fa-${closed ? "plus" : "minus"}`}></i>
+        </button>
       </h3>
-      <form className="mt-2">
+      <form
+        className="mt-2"
+        style={{
+          display: closed ? "none" : "block",
+          overflow: "hidden"
+        }}
+      >
         <div className="d-flex flex-column flex-md-row justify-content-around">
           <div className="form-group">
             <label htmlFor="bedTime">Went to Bed:</label>
@@ -70,6 +85,17 @@ const AddNight = () => {
             />
             <label className="form-check-label" htmlFor="night-headache">
               Headache
+            </label>
+          </div>
+          <div className="form-check my-2">
+            <input
+              type="checkbox"
+              className="form-check-input"
+              id="night-sick"
+              onChange={e => setSick(e.target.checked)}
+            />
+            <label className="form-check-label" htmlFor="night-sick">
+              Sick
             </label>
           </div>
         </div>
