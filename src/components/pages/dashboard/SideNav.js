@@ -58,6 +58,7 @@ const Sidenav = () => {
           to="/dashboard"
           exact
           activeClassName="selected"
+          onClick={() => setSidenavOpen(false)}
         >
           Overview
         </NavLink>
@@ -65,6 +66,7 @@ const Sidenav = () => {
           className="nav-link py-4"
           to="/dashboard/sleep"
           activeClassName="selected"
+          onClick={() => setSidenavOpen(false)}
         >
           Sleep
         </NavLink>
@@ -72,6 +74,7 @@ const Sidenav = () => {
           className="nav-link py-4"
           to="/dashboard/exercise"
           activeClassName="selected"
+          onClick={() => setSidenavOpen(false)}
         >
           Exercise
         </NavLink>
@@ -79,6 +82,7 @@ const Sidenav = () => {
           className="nav-link py-4"
           to="/dashboard/diet"
           activeClassName="selected"
+          onClick={() => setSidenavOpen(false)}
         >
           Diet
         </NavLink>
@@ -86,6 +90,7 @@ const Sidenav = () => {
           className="nav-link py-4"
           to="/dashboard/settings"
           activeClassName="selected"
+          onClick={() => setSidenavOpen(false)}
         >
           Settings
         </NavLink>

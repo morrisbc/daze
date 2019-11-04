@@ -12,16 +12,23 @@ const AddNight = () => {
 
   return (
     <section className="text-white mt-5 mb-3">
-      <h3 className="pb-2" style={{ borderBottom: "1px solid white" }}>
-        Add Night{" "}
-        <button
-          className="float-right"
-          style={{ background: "none", border: "none", color: "white" }}
-          onClick={() => setClosed(!closed)}
-        >
-          <i className={`fas fa-${closed ? "plus" : "minus"}`}></i>
-        </button>
-      </h3>
+      <button
+        className="d-flex justify-content-between align-items-center w-100"
+        style={{
+          background: "none",
+          color: "white",
+          border: "none",
+          borderBottom: "1px solid white"
+        }}
+        onClick={() => setClosed(!closed)}
+      >
+        <h3>Add Night</h3>
+        <i
+          className={`fas fa-${closed ? "plus" : "minus"}`}
+          style={{ fontSize: "1.5rem" }}
+        ></i>
+      </button>
+
       <form
         className="mt-2"
         style={{

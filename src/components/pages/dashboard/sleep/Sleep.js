@@ -2,6 +2,7 @@ import React, { Fragment } from "react";
 import PropTypes from "prop-types";
 import BarGraph from "../../../graphs/BarGraph";
 import AddNight from "./AddNight";
+import Nights from "./Nights";
 
 const Sleep = ({ sleepGoal }) => {
   const labels = ["Su", "M", "T", "W", "Th", "F", "S"];
@@ -35,6 +36,7 @@ const Sleep = ({ sleepGoal }) => {
         />
       </section>
       <AddNight />
+      <Nights />
     </Fragment>
   );
 };

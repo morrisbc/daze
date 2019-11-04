@@ -18,7 +18,7 @@ const Overview = () => {
     1} / ${date.getDate()} / ${date.getFullYear()}`;
 
   useEffect(() => {
-    addAuthObserver(user => {
+    return addAuthObserver(user => {
       if (user) {
         setFirstName(user.displayName);
         db.collection("dailyGoals")
