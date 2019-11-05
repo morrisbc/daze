@@ -1,6 +1,13 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
+import FirebaseContext from "../../../firebase/context";
+import DateTimeLocal from "./DateTimeLocal";
+import NightCheck from "./NightCheck";
 
 const AddNight = () => {
+  const firebaseContext = useContext(FirebaseContext);
+  const { getDatabase, getUserUID } = firebaseContext;
+  const db = getDatabase();
+
   const [bedTime, setBedTime] = useState("");
   const [wakeTime, setWakeTime] = useState("");
   const [rested, setRested] = useState(false);
@@ -9,6 +16,45 @@ const AddNight = () => {
   const [sick, setSick] = useState(false);
   const [notes, setNotes] = useState("");
   const [closed, setClosed] = useState(false);
+
+  const [err, setErr] = useState(null);
+  const [success, setSuccess] = useState(null);
+
+  const onSubmit = e => {
+    e.preventDefault();
+
+    if (bedTime < wakeTime) {
+      db.collection("nights")
+        .add({
+          bedTime,
+          wakeTime,
+          rested,
+          tired,
+          headache,
+          sick,
+          notes,
+          user: getUserUID()
+        })
+        .then(() => {
+          setErr(null);
+          setSuccess("Night added!");
+
+          setBedTime("");
+          setWakeTime("");
+          setRested(false);
+          setTired(false);
+          setHeadache(false);
+          setSick(false);
+          setNotes("");
+          document.getElementById("add-night").reset();
+
+          setTimeout(() => setSuccess(null), 2000);
+        })
+        .catch(error => setErr(error.message));
+    } else {
+      setErr("Night is invalid. Please try again.");
+    }
+  };
 
   return (
     <section className="text-white mt-5 mb-3">
@@ -30,82 +76,71 @@ const AddNight = () => {
       </button>
 
       <form
+        id="add-night"
         className="mt-2"
         style={{
           display: closed ? "none" : "block",
           overflow: "hidden"
         }}
+        onSubmit={onSubmit}
       >
         <div className="d-flex flex-column flex-md-row justify-content-around">
-          <div className="form-group">
-            <label htmlFor="bedTime">Went to Bed:</label>
-            <input
-              id="bedTime"
-              type="datetime-local"
-              className="night-input form-control"
-              onChange={e => setBedTime(e.target.value)}
-              style={{ maxWidth: "240px" }}
-            />
-          </div>
-          <div>
-            <label htmlFor="wakeTime">Woke Up:</label>
-            <input
-              id="wakeTime"
-              type="datetime-local"
-              className="night-input form-control"
-              onChange={e => setWakeTime(e.target.value)}
-              style={{ maxWidth: "240px" }}
-            />
-          </div>
+          <DateTimeLocal
+            inputID="bedTime"
+            labelText="Went to Bed:"
+            className="night-input form-control"
+            onChange={e => setBedTime(e.target.value)}
+            required={true}
+            style={{ maxWidth: "240px" }}
+          />
+          <DateTimeLocal
+            inputID="wakeTime"
+            labelText="Woke Up:"
+            className="night-input form-control"
+            onChange={e => setWakeTime(e.target.value)}
+            required={true}
+            style={{ maxWidth: "240px" }}
+          />
         </div>
+
+        {/* Date Validation Messages */}
+        {bedTime >= wakeTime && bedTime !== "" && wakeTime !== "" && (
+          <p className="text-center text-warning">
+            Bed Time must be before Wake Time
+          </p>
+        )}
+        {(new Date(bedTime) > new Date(Date.now()) ||
+          new Date(wakeTime) > new Date(Date.now())) && (
+          <p className="text-center text-warning">
+            Dates must not be in the future
+          </p>
+        )}
+
         <div className="form-group mt-3">
-          <div className="form-check my-2">
-            <input
-              type="checkbox"
-              className="form-check-input"
-              id="night-rested"
-              onChange={e => setRested(e.target.checked)}
-              disabled={tired}
-            />
-            <label className="form-check-label" htmlFor="night-rested">
-              Well Rested
-            </label>
-          </div>
-          <div className="form-check my-2">
-            <input
-              type="checkbox"
-              className="form-check-input"
-              id="night-tired"
-              onChange={e => setTired(e.target.checked)}
-              disabled={rested}
-            />
-            <label className="form-check-label" htmlFor="night-tired">
-              Tired
-            </label>
-          </div>
-          <div className="form-check my-2">
-            <input
-              type="checkbox"
-              className="form-check-input"
-              id="night-headache"
-              onChange={e => setHeadache(e.target.checked)}
-            />
-            <label className="form-check-label" htmlFor="night-headache">
-              Headache
-            </label>
-          </div>
-          <div className="form-check my-2">
-            <input
-              type="checkbox"
-              className="form-check-input"
-              id="night-sick"
-              onChange={e => setSick(e.target.checked)}
-            />
-            <label className="form-check-label" htmlFor="night-sick">
-              Sick
-            </label>
-          </div>
+          <NightCheck
+            inputID="night-rested"
+            text="Well Rested"
+            disabled={tired}
+            onChange={e => setRested(e.target.checked)}
+          />
+          <NightCheck
+            inputID="night-tired"
+            text="Tired"
+            disabled={rested}
+            onChange={e => setTired(e.target.checked)}
+          />
+          <NightCheck
+            inputID="night-headache"
+            text="Headache"
+            onChange={e => setHeadache(e.target.checked)}
+          />
+          <NightCheck
+            inputID="night-sick"
+            text="Sick"
+            onChange={e => setSick(e.target.checked)}
+          />
         </div>
+
         <div className="form-group mt-3">
           <label htmlFor="night-notes">Notes: ({notes.length}/140)</label>
           <textarea
@@ -121,6 +156,8 @@ const AddNight = () => {
         </div>
         <input className="btn btn-main" type="submit" value="Add Night" />
       </form>
+      {err && <p className="text-warning pt-2">{err}</p>}
+      {success && <p className="pt-2">{success}</p>}
     </section>
   );
 };
