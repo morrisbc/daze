@@ -2,6 +2,7 @@ import React, { useContext, useState } from "react";
 import { Link, Redirect } from "react-router-dom";
 import FirebaseContext from "../firebase/context";
 import Footer from "../Footer";
+import Smoke from "../Smoke";
 
 const Forgot = () => {
   const firebaseContext = useContext(FirebaseContext);
@@ -26,6 +27,7 @@ const Forgot = () => {
 
   return (
     <div className="forgot container d-flex flex-column justify-content-center">
+      <Smoke />
       <h3 className="text-white text-center">Forgot Password</h3>
       <form onSubmit={onSubmit}>
         <div className="form-group">

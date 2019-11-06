@@ -2,6 +2,7 @@ import React, { useContext, useState, useEffect } from "react";
 import FirebaseContext from "../firebase/context";
 import AuthForm from "../AuthForm";
 import Footer from "../Footer";
+import Smoke from "../Smoke";
 import { Link, Redirect } from "react-router-dom";
 
 const Login = () => {
@@ -33,6 +34,7 @@ const Login = () => {
 
   return (
     <div className="login container d-flex flex-column justify-content-center">
+      <Smoke />
       <h3 className="logo">Daze</h3>
       <AuthForm onSubmit={onSubmit} submitText="Log In" />
       {err && <p className="text-warning text-center">{err}</p>}

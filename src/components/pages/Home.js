@@ -1,9 +1,11 @@
 import React from "react";
 import Footer from "../Footer";
+import Smoke from "../Smoke";
 
 const Home = () => {
   return (
     <div className="container">
+      <Smoke />
       <section className="hero d-flex flex-column align-items-center justify-content-center">
         <svg
           width="200px"
