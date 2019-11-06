@@ -38,7 +38,9 @@ const Overview = () => {
   return (
     <div className="h-100 d-flex flex-column justify-content-center text-center">
       <Greeting firstName={firstName} />
-      <h2 className="text-white">{today}</h2>
+      <h2 className="text-white" style={{ fontSize: "1.75rem" }}>
+        {today}
+      </h2>
       <div className="d-flex flex-column flex-md-row w-100">
         <OverviewBar
           value={15}

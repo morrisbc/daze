@@ -58,7 +58,7 @@ const DailyGoals = () => {
               className="form-control text-white bg-transparent"
               type="number"
               id="sleep-goal"
-              style={{ minWidth: "200px" }}
+              style={{ width: "200px" }}
               step="0.5"
               min="0"
               max="24"
@@ -73,7 +73,7 @@ const DailyGoals = () => {
               className="form-control text-white bg-transparent"
               type="number"
               id="diet-goal"
-              style={{ minWidth: "200px" }}
+              style={{ width: "200px" }}
               min="0"
               max="15000"
               onChange={e => setDiet(parseInt(e.target.value))}
@@ -87,7 +87,7 @@ const DailyGoals = () => {
               className="form-control text-white bg-transparent"
               type="number"
               id="exercise-goal"
-              style={{ minWidth: "200px" }}
+              style={{ width: "200px" }}
               min="0"
               onChange={e => setExercise(parseInt(e.target.value))}
               value={exercise}

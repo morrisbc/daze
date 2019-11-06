@@ -1,3 +1,7 @@
+:root {
+  --primary-color: #3f808b;
+}
+
 .hero {
   min-height: 100vh;
 }
@@ -80,7 +84,7 @@
 
 .auth-link,
 .nav-link {
-  color: #3f808b;
+  color: var(--primary-color);
 }
 
 .auth-link:hover,
@@ -93,12 +97,12 @@
 }
 
 .selected:hover {
-  color: #3f808b;
+  color: var(--primary-color);
 }
 
 .btn-main {
-  background-color: #3f808b;
-  border-color: #3f808b;
+  background-color: var(--primary-color);
+  border-color: var(--primary-color);
   color: white;
 }
 
@@ -110,6 +114,20 @@
 .night-input:focus {
   background: transparent;
   color: white;
+}
+
+.night-icon {
+  font-size: 1.25rem;
+}
+
+.night-closed {
+  height: 0;
+  overflow: hidden;
+  padding: 0;
+}
+
+.night-open {
+  height: auto;
 }
 
 @media screen and (max-width: 450px) {

@@ -1,16 +1,11 @@
-import React, { useEffect } from "react";
+import React from "react";
 
 const Smoke = () => {
-  useEffect(() => {
-    document.querySelector(".smoke").playbackRate = 0.5;
-  }, []);
   return (
-    <video
-      autoPlay
-      muted
-      loop
+    <img
       className="smoke"
-      src="/assets/smoke.mp4"
+      src="/assets/smoke.gif"
+      alt="smoke"
       style={{
         position: "fixed",
         minWidth: "100vw",
@@ -18,7 +13,7 @@ const Smoke = () => {
         bottom: "0",
         left: "0",
         zIndex: "-1",
-        opacity: "0.1"
+        opacity: "0.2"
       }}
     />
   );

@@ -1,8 +1,9 @@
 import React, { useState, useEffect, useContext } from "react";
+import PropTypes from "prop-types";
 import FirebaseContext from "../../../firebase/context";
 import Night from "./Night";
 
-const Nights = () => {
+const Nights = ({ limit }) => {
   const firebaseContext = useContext(FirebaseContext);
   const { addAuthObserver, getDatabase } = firebaseContext;
   const db = getDatabase();
@@ -15,8 +16,9 @@ const Nights = () => {
       if (user) {
         db.collection("nights")
           .where("user", "==", user.uid)
-          .get()
-          .then(snap => {
+          .orderBy("bedTime", "desc")
+          .limit(limit)
+          .onSnapshot(snap => {
             setNights(snap.docs);
           });
       }
@@ -27,7 +29,7 @@ const Nights = () => {
   return (
     <section className="text-white mt-5">
       <button
-        className="d-flex justify-content-between align-items-center w-100"
+        className="d-flex justify-content-between align-items-center w-100 mb-3"
         style={{
           background: "none",
           color: "white",
@@ -55,6 +57,10 @@ const Nights = () => {
       </ul>
     </section>
   );
+};
+
+Nights.propTypes = {
+  limit: PropTypes.number.isRequired
 };
 
 export default Nights;
