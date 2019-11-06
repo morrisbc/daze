@@ -10,6 +10,7 @@ const DailyGoals = () => {
   const [diet, setDiet] = useState(0);
   const [exercise, setExercise] = useState(0);
   const [goalsId, setGoalsId] = useState(null);
+
   const [success, setSuccess] = useState(null);
   const [err, setErr] = useState(null);
 
@@ -58,10 +59,12 @@ const DailyGoals = () => {
               type="number"
               id="sleep-goal"
               style={{ minWidth: "200px" }}
+              step="0.5"
               min="0"
               max="24"
-              onChange={e => setSleep(parseInt(e.target.value))}
+              onChange={e => setSleep(parseFloat(e.target.value))}
               value={sleep}
+              required
             />
           </div>
           <div className="form-group">
@@ -75,6 +78,7 @@ const DailyGoals = () => {
               max="15000"
               onChange={e => setDiet(parseInt(e.target.value))}
               value={diet}
+              required
             />
           </div>
           <div className="form-group">
@@ -87,6 +91,7 @@ const DailyGoals = () => {
               min="0"
               onChange={e => setExercise(parseInt(e.target.value))}
               value={exercise}
+              required
             />
           </div>
         </div>
