@@ -25,7 +25,7 @@ const Sidenav = () => {
   };
 
   return (
-    <aside className="aside-nav sticky-top">
+    <aside className="aside-nav">
       <button
         className="mobile-nav-btn"
         onClick={() => setSidenavOpen(!sidenavOpen)}
@@ -49,7 +49,7 @@ const Sidenav = () => {
         </svg>
       </button>
       <nav
-        className={`sidenav ${
+        className={`sidenav sticky-top ${
           sidenavOpen ? "sidenav-open" : "sidenav-closed"
         } d-flex flex-column justify-content-center align-items-center`}
       >

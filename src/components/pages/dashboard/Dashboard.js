@@ -15,7 +15,7 @@ const Dashboard = () => {
             <Overview />
           </Route>
           <Route path="/dashboard/sleep">
-            <Sleep sleepGoal={8} />
+            <Sleep />
           </Route>
           <Route path="/dashboard/settings">
             <Settings />

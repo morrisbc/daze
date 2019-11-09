@@ -1,5 +1,4 @@
 import React, { Fragment, useState, useEffect, useContext } from "react";
-import PropTypes from "prop-types";
 import FirebaseContext from "../../../firebase/context";
 import BarGraph from "../../../graphs/BarGraph";
 import AddNight from "./AddNight";
@@ -61,10 +60,6 @@ const Sleep = () => {
       <Nights limit={10} />
     </Fragment>
   );
-};
-
-Sleep.propTypes = {
-  sleepGoal: PropTypes.number.isRequired
 };
 
 export default Sleep;
