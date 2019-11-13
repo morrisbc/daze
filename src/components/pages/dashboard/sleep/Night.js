@@ -1,13 +1,27 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import PropTypes from "prop-types";
+import FirebaseContext from "../../../firebase/context";
 
 const Night = ({
-  night: { bedTime, wakeTime, rested, tired, headache, sick, notes, id }
+  night: { bedTime, wakeTime, rested, tired, headache, sick, notes },
+  id
 }) => {
+  const firebaseContext = useContext(FirebaseContext);
+  const { getDatabase } = firebaseContext;
+  const db = getDatabase();
+
   const bedTimeDate = new Date(bedTime);
   const wakeTimeDate = new Date(wakeTime);
 
   const [closed, setClosed] = useState(true);
+
+  const deleteNight = () => {
+    if (window.confirm("Delete this night?")) {
+      db.collection("nights")
+        .doc(id)
+        .delete();
+    }
+  };
 
   return (
     <li id={id} className="my-3">
@@ -59,6 +73,17 @@ const Night = ({
           <p>{"Bed Time: " + bedTimeDate.toLocaleString()}</p>
           <p>{"Wake Time: " + wakeTimeDate.toLocaleString()}</p>
           <p>{`Notes: ${notes}`}</p>
+          <button
+            onClick={deleteNight}
+            style={{
+              background: "none",
+              border: "none",
+              color: "red",
+              width: "auto"
+            }}
+          >
+            <i className="fa fa-times" style={{ fontSize: "1.25rem" }}></i>
+          </button>
         </div>
       </div>
     </li>
@@ -66,7 +91,8 @@ const Night = ({
 };
 
 Night.propTypes = {
-  night: PropTypes.object.isRequired
+  night: PropTypes.object.isRequired,
+  id: PropTypes.string.isRequired
 };
 
 export default Night;

@@ -52,7 +52,7 @@ const Nights = ({ limit }) => {
         }}
       >
         {nights.map(doc => (
-          <Night key={doc.id} night={doc.data()} />
+          <Night key={doc.id} id={doc.id} night={doc.data()} />
         ))}
       </ul>
     </section>

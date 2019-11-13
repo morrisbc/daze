@@ -70,6 +70,7 @@ const BarGraph = ({ labels, values, unit, goalValue, barColor }) => {
               className="w-100 position-absolute m-0"
               style={{
                 bottom: `${(goalValue / (maxValue + 1)) * 100}%`,
+                left: 0,
                 height: "1px",
                 border: "1px solid #007bff"
               }}
@@ -80,6 +81,7 @@ const BarGraph = ({ labels, values, unit, goalValue, barColor }) => {
             className="w-100 position-absolute m-0"
             style={{
               bottom: `${(avgValue / (maxValue + 1)) * 100}%`,
+              left: 0,
               height: "1px",
               border: "1px solid gold"
             }}
