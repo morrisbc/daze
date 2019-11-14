@@ -24,7 +24,7 @@ const BarGraph = ({ labels, values, unit, goalValue, barColor }) => {
   return (
     // Graph Container
     <div
-      className="d-flex align-items-end"
+      className="bar-graph d-flex align-items-end"
       style={{
         height: "250px"
       }}
@@ -51,7 +51,7 @@ const BarGraph = ({ labels, values, unit, goalValue, barColor }) => {
       >
         {/* Labels */}
         <ul
-          className="d-flex justify-content-around text-white py-1 m-0"
+          className="d-flex justify-content-around align-items-center text-white py-1 m-0"
           style={{
             borderBottom: "1px solid white",
             height: "15%",

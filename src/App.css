@@ -179,6 +179,7 @@
     display: block;
     position: fixed;
     top: 15px;
+    z-index: 1030;
   }
 
   @keyframes slidedown {
@@ -191,10 +192,6 @@
     }
   }
 
-  .test-slide {
-    animation: 5s slidedown;
-  }
-
   .dashboard-main {
     padding: 0;
     padding-top: 50px;
@@ -203,6 +200,7 @@
   .aside-nav {
     position: fixed;
     left: 0;
+    z-index: 1020;
   }
 
   .sidenav {
@@ -222,5 +220,9 @@
 
   .sleep-header {
     font-size: 1rem;
+  }
+
+  .bar-graph {
+    font-size: 0.75rem;
   }
 }
