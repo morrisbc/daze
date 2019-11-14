@@ -10,11 +10,11 @@ const Sleep = () => {
   const db = getDatabase();
 
   const [sleepGoal, setSleepGoal] = useState(0);
+  const [labels, setLabels] = useState(["1", "2", "3", "4"]);
+  const [values, setValues] = useState([]);
 
-  const labels = ["Su", "M", "T", "W", "Th", "F", "S"];
-  const values = [6, 7, 6, 8, 8, 7, 6.5];
   // Courtesy of https://codeburst.io/javascript-arrays-finding-the-minimum-maximum-sum-average-values-f02f1b0ce332
-  const avgValue = values.reduce((a, b) => a + b, 0) / values.length;
+  const avgValue = values.reduce((a, b) => a + b, 0) / values.length || 0;
 
   useEffect(() => {
     return addAuthObserver(user => {
@@ -25,6 +25,43 @@ const Sleep = () => {
           .then(snap => {
             const { sleep } = snap.docs[0].data();
             setSleepGoal(sleep);
+          });
+
+        db.collection("nights")
+          .where("user", "==", user.uid)
+          .orderBy("bedTime", "desc")
+          .limit(7)
+          .onSnapshot(snap => {
+            setLabels(
+              snap.docs
+                .slice(0)
+                .reverse()
+                .map(doc => {
+                  const data = doc.data();
+                  const bedTime = new Date(data.bedTime);
+                  const bedTimeDateString = bedTime.toLocaleDateString();
+
+                  return bedTimeDateString.substring(
+                    0,
+                    bedTimeDateString.length - 5
+                  );
+                })
+            );
+
+            setValues(
+              snap.docs
+                .slice(0)
+                .reverse()
+                .map(doc => {
+                  const data = doc.data();
+                  const bedTime = new Date(data.bedTime);
+                  const wakeTime = new Date(data.wakeTime);
+
+                  return parseFloat(
+                    (wakeTime.getTime() - bedTime.getTime()) / 3600000
+                  );
+                })
+            );
           });
       }
     });
@@ -45,7 +82,7 @@ const Sleep = () => {
             className="sleep-header pb-1"
             style={{ borderBottom: "2px solid gold" }}
           >
-            Mean: {avgValue.toFixed(2)} hrs
+            Mean: {avgValue.toFixed(1)} hrs
           </h3>
         </div>
         <BarGraph
@@ -57,7 +94,7 @@ const Sleep = () => {
         />
       </section>
       <AddNight />
-      <Nights limit={10} />
+      <Nights limit={7} />
     </Fragment>
   );
 };

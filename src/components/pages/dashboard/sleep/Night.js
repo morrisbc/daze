@@ -84,6 +84,17 @@ const Night = ({
           >
             <i className="fa fa-times" style={{ fontSize: "1.25rem" }}></i>
           </button>
+          <button
+            className="ml-3"
+            style={{
+              background: "none",
+              border: "none",
+              color: "gold",
+              width: "auto"
+            }}
+          >
+            <i className="fa fa-pencil-alt"></i>
+          </button>
         </div>
       </div>
     </li>

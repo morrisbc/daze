@@ -90,7 +90,7 @@ const AddNight = () => {
             labelText="Went to Bed:"
             className="night-input form-control"
             onChange={e => setBedTime(e.target.value)}
-            required={true}
+            required
             style={{ maxWidth: "240px" }}
           />
           <DateTimeLocal
@@ -98,7 +98,7 @@ const AddNight = () => {
             labelText="Woke Up:"
             className="night-input form-control"
             onChange={e => setWakeTime(e.target.value)}
-            required={true}
+            required
             style={{ maxWidth: "240px" }}
           />
         </div>

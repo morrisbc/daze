@@ -4,16 +4,18 @@ import Bar from "./Bar";
 
 const BarGraph = ({ labels, values, unit, goalValue, barColor }) => {
   // Throw Error if the number of labels doesn't match the number of values
-  if (labels.length !== values.length) {
-    throw new Error();
-  }
+  // if (labels.length !== values.length) {
+  //   throw new Error(
+  //     `Number of labels (${labels.length}) does not match the number of values (${values.length})`
+  //   );
+  // }
 
   // Calculate the numbers for the labels on the y axis
   const maxValue = Math.max(...values);
   let scale = [];
 
   for (let num = 0; num <= maxValue + 1; num += (maxValue + 1) / 4) {
-    scale.unshift(num);
+    scale.unshift(num.toFixed(1));
   }
 
   // Courtesy of https://codeburst.io/javascript-arrays-finding-the-minimum-maximum-sum-average-values-f02f1b0ce332
