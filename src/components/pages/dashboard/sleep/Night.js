@@ -1,6 +1,7 @@
 import React, { useState, useContext } from "react";
 import PropTypes from "prop-types";
 import FirebaseContext from "../../../firebase/context";
+import SleepForm from "./SleepForm";
 
 const Night = ({
   night: { bedTime, wakeTime, rested, tired, headache, sick, notes },
@@ -11,9 +12,11 @@ const Night = ({
   const db = getDatabase();
 
   const bedTimeDate = new Date(bedTime);
-  const wakeTimeDate = new Date(wakeTime);
 
   const [closed, setClosed] = useState(true);
+  const [edit, setEdit] = useState(false);
+  const [bedTimeState, setBedTimeState] = useState(bedTime);
+  const [wakeTimeState, setWakeTimeState] = useState(wakeTime);
 
   const deleteNight = () => {
     if (window.confirm("Delete this night?")) {
@@ -21,6 +24,11 @@ const Night = ({
         .doc(id)
         .delete();
     }
+  };
+
+  const editNight = e => {
+    e.preventDefault();
+    console.log(e);
   };
 
   return (
@@ -70,12 +78,28 @@ const Night = ({
           ></i>
         </button>
         <div className={`card-body night-${closed ? "closed" : "open"}`}>
-          <p>{"Bed Time: " + bedTimeDate.toLocaleString()}</p>
-          <p>{"Wake Time: " + wakeTimeDate.toLocaleString()}</p>
-          <p>{`Notes: ${notes}`}</p>
+          <SleepForm edit={edit} submitText="Edit Night" />
+          <input
+            type="submit"
+            className="btn btn-main mr-2"
+            style={{ display: edit ? "inline-block" : "none" }}
+            value="Edit Night"
+          />
+          <input
+            type="button"
+            className="btn btn-secondary mx-2"
+            style={{ display: edit ? "inline-block" : "none" }}
+            onClick={() => {
+              setEdit(false);
+              setBedTimeState(bedTime);
+              setWakeTimeState(wakeTime);
+            }}
+            value="Cancel"
+          />
           <button
             onClick={deleteNight}
             style={{
+              display: edit ? "none" : "inline-block",
               background: "none",
               border: "none",
               color: "red",
@@ -86,7 +110,9 @@ const Night = ({
           </button>
           <button
             className="ml-3"
+            onClick={() => setEdit(!edit)}
             style={{
+              display: edit ? "none" : "inline-block",
               background: "none",
               border: "none",
               color: "gold",

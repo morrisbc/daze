@@ -111,7 +111,8 @@
 }
 
 .night-input,
-.night-input:focus {
+.night-input:focus,
+.night-input:disabled {
   background: transparent;
   color: white;
 }

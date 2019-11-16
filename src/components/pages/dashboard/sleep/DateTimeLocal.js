@@ -7,6 +7,8 @@ const DateTimeLocal = ({
   className,
   onChange,
   required,
+  disabled,
+  value,
   style
 }) => {
   return (
@@ -18,6 +20,8 @@ const DateTimeLocal = ({
         className={className}
         onChange={onChange}
         required={required || false}
+        disabled={disabled || false}
+        value={value || ""}
         style={style}
       />
     </div>
@@ -30,6 +34,8 @@ DateTimeLocal.propTypes = {
   className: PropTypes.string.isRequired,
   onChange: PropTypes.func.isRequired,
   required: PropTypes.bool,
+  disabled: PropTypes.bool,
+  value: PropTypes.string,
   style: PropTypes.object
 };
 
