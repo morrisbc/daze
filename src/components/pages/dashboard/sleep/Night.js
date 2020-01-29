@@ -12,6 +12,7 @@ const Night = ({
   const db = getDatabase();
 
   const bedTimeDate = new Date(bedTime);
+  const wakeTimeDate = new Date(wakeTime);
 
   const [closed, setClosed] = useState(true);
   const [edit, setEdit] = useState(false);
@@ -78,28 +79,12 @@ const Night = ({
           ></i>
         </button>
         <div className={`card-body night-${closed ? "closed" : "open"}`}>
-          <SleepForm edit={edit} submitText="Edit Night" />
-          <input
-            type="submit"
-            className="btn btn-main mr-2"
-            style={{ display: edit ? "inline-block" : "none" }}
-            value="Edit Night"
-          />
-          <input
-            type="button"
-            className="btn btn-secondary mx-2"
-            style={{ display: edit ? "inline-block" : "none" }}
-            onClick={() => {
-              setEdit(false);
-              setBedTimeState(bedTime);
-              setWakeTimeState(wakeTime);
-            }}
-            value="Cancel"
-          />
+          <p>{"Bed Time: " + bedTimeDate.toLocaleString()}</p>
+          <p>{"Wake Time: " + wakeTimeDate.toLocaleString()}</p>
+          <p>{`Notes: ${notes}`}</p>
           <button
             onClick={deleteNight}
             style={{
-              display: edit ? "none" : "inline-block",
               background: "none",
               border: "none",
               color: "red",
@@ -107,19 +92,6 @@ const Night = ({
             }}
           >
             <i className="fa fa-times" style={{ fontSize: "1.25rem" }}></i>
-          </button>
-          <button
-            className="ml-3"
-            onClick={() => setEdit(!edit)}
-            style={{
-              display: edit ? "none" : "inline-block",
-              background: "none",
-              border: "none",
-              color: "gold",
-              width: "auto"
-            }}
-          >
-            <i className="fa fa-pencil-alt"></i>
           </button>
         </div>
       </div>
